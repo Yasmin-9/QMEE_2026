@@ -1,6 +1,7 @@
 library(dplyr)
+getwd()
 # Load the blast output text file
-file = "data/blast_laevis_long_cleaned.txt"
+file = "Assignment 1/data/blast_laevis_long_cleaned.txt"
 df = read.delim(file, header = FALSE, quote = "", stringsAsFactors = FALSE)
 
 head(df)
@@ -65,9 +66,9 @@ gene_metrics <- merge(gene_metrics, min_evalue_by_gene, by = "gene_name", all.x=
 head(gene_metrics)
 
 # Load the contig length table 
-bed_file = "data/contig_length.bed"
+bed_file = "Assignment 1/data/contig_length.bed"
 contig_length = read.delim(bed_file, header = FALSE, quote = "", stringsAsFactors = FALSE, skip =1)
-colnames(contig_length) = c("contig", "con_length")
+colnames(contig_length) = c("contig", "con_length_mb")
 
 # Merge the contig length on the contig col 
 df_merged <- merge(df, contig_length, by= "contig", all.x=TRUE)
@@ -85,4 +86,9 @@ contig_stats$gene_density <- contig_stats$gene_count * 1e6 / contig_stats$con_le
 head(contig_stats)
 
 # Plot the density against the length
+library(ggplot2)
+plot <- ggplot(contig_stats, aes(x=con_length_mb, y=gene_density)) + geom_point() + scale_x_log10() + labs (x = "Log(contig length) in Mb", y= "Gene Density",title = " Gene density vs. contig length")
+print(plot)
+# The outliers on the plot highligh high gene density (compred to their length)
+# Extracting such outlier contigs and exploring whether other tests and data types (such as associations tests or heterozygosity ratios) point towards the same contigs 
 
