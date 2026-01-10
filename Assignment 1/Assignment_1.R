@@ -84,4 +84,5 @@ contig_stats <- merge(gene_count_contig, contig_length, by = "contig")
 contig_stats$gene_density <- contig_stats$gene_count * 1e6 / contig_stats$con_length #do the length in Mb 
 head(contig_stats)
 
+# Plot the density against the length
 
