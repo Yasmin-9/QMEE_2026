@@ -2,4 +2,5 @@
 .Rhistory
 .RData
 .Ruserdata
+*.rds
 Assignment 1/data/
