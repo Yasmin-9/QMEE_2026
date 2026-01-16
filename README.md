@@ -32,7 +32,8 @@ Specifically, ANGSD association is another yet important approach to do, as it u
 For each polymorphic position, the minor allele frequency is computed and the likelihood ratio statisitc (LRT) and Pvalue is also generated.
 From this information, other paramaeters such as SNP density or the Negatie Log(P) will be computer to to distinguish candidate contigs and prepare the data for future exploration.
 
-### How to find the script 
+### How to find the scripts
+Scripts can be found in the Assignment 2 directory inside the scripts folder:
 script_1.R contains data examination and data cleaning 
 script_2.R contains computations more relevant to the biological question
 Note: run script_1.R prior to script_2.R
