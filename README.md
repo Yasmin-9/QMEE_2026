@@ -38,6 +38,7 @@ script_1.R contains data examination and data cleaning
 script_2.R contains computations more relevant to the biological question
 Note: run script_1.R prior to script_2.R
 
+JD: You should say which directory scripts need to be _run_ from as well. Also, please avoid spaces in filepaths: I renamed your directories and hope it does not cause inconvenience.
 
 ### Future work
 The next steps would be 'annotating' the candidate contigs and using the X.laevis genome (specifically the blast output from Assignment 1) to highlight what genes they contain

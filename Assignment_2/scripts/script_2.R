@@ -25,6 +25,8 @@ print(ggplot(SNP_metrics_df, aes(x=Neg_log_P))
 # but we know from the skim(SNP_metrics_df) that the max value of Neg_log_P is 6.63
 # so, an appropriate threshold would be 5 
 
+## JD: Can you explain a bit more?
+
 # Extract the SNPs with -log(P) above the threshold = 5 - these will be considered 'significant SNPs' 
 Sig_SNP_df <- SNP_metrics_df[which(SNP_metrics_df$Neg_log_P > 5), ]
 skim(Sig_SNP_df)
@@ -34,3 +36,5 @@ skim(Sig_SNP_df)
 # - Exploring contigs with high SNP density and their Neg_log_P values 
 # - Explore the distribution of the Sig_SNPs across contigs (i.e. do they aggregate one a certain contig): 
 #       - At the moment, the Sig_SNP_df shows 30 SNPs across 22 contigs 
+
+## JD: All seems sensible, grade 2/3

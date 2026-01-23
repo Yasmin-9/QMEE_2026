@@ -2,7 +2,7 @@ library(dplyr)
 library(skimr)
 
 # Load the angsd assoc output file (unfiltered)
-file = "Assignment 2/data/out_additive_F1.lrt0"
+file = "Assignment_2/data/out_additive_F1.lrt0"
 system.time(df <- read.delim(file, header = TRUE)) 
 
 # Check the df summary and data types 
@@ -15,11 +15,15 @@ summary(df)
 count(df,is.na(df))
 # no missing values in the first place 
 
+# JD: Consider using stopifnot here
+
 
 # Filter out any Frequency < 0.1
 clean_df <- filter(df, Frequency >= 0.1)
 n_distinct(clean_df)
 # the number of entries was reduced from 553815 to 252763
+
+## JD: why did you use n_distinct here, but not above?
 
 
 # Could possibly create a subset table with Position, Major, and Minor 
@@ -55,7 +59,7 @@ saveRDS(SNP_metrics_df, "SNP_metrics_df.rds")
                 )
 
 # Import the contig length file 
-bed_file = "Assignment 2/data/contig_length.bed"
+bed_file = "Assignment_2/data/contig_length.bed"
 contig_length = read.delim(bed_file, header = FALSE, quote = "", stringsAsFactors = FALSE, skip =1)
 colnames(contig_length) = c("Chromosome", "Length")
 
