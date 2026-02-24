@@ -1,5 +1,8 @@
 library(DHARMa)
 
+## JD Please make sure your script runs from beginning to end in a clean session. I fixed the %>% problem with this call (although you should just prefer |>). But now there is another missing library and I'm going to kick the whole thing back to you.
+library(magrittr)
+
 # Load RDS object 
 df_clean <- readRDS("Assignment_6/data/clean_dry_eye_dataset.rds")
 
