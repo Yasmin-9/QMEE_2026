@@ -1,4 +1,5 @@
 library(DHARMa)
+library(dplyr)
 
 ## JD Please make sure your script runs from beginning to end in a clean session. I fixed the %>% problem with this call (although you should just prefer |>). But now there is another missing library and I'm going to kick the whole thing back to you.
 library(magrittr)
@@ -50,7 +51,7 @@ plot(simulateResiduals(glm_model))
 # I used this discussion here as a reference: https://github.com/florianhartig/DHARMa/issues/396
 
 # Still, I subset the data (exactly 2000) and see if the diagnostic plots are more informative 
-df_subset <- df_clean %>%
+df_subset <- df_clean |>
   sample_n(2000,replace = FALSE)
 
 # Run the model on the subset on the subset df
